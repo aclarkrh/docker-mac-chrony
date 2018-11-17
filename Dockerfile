@@ -1,6 +1,6 @@
-FROM alpine
+FROM rhel7/rhel
 
-RUN apk update && \
-    apk add chrony
+RUN yum -y update && \
+    yum -y install chrony
 
-CMD (rm /var/run/chronyd.pid; chronyd -n -m -s -l /dev/stdout)
+CMD (chronyd -n -m -s -l /dev/stdout)
