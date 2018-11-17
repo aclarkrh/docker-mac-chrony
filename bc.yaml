@@ -9,7 +9,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: rhel:latest
+      name: docker-mac-chrony:latest
   resources: {}
   source:
     git:
