@@ -1,0 +1,25 @@
+
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: docker-mac-chrony
+  name: docker-mac-chrony-bc
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: rhel:latest
+  resources: {}
+  source:
+    git:
+      ref: master
+      uri: https://github.com/aclarkrh/docker-mac-chrony.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: rhel:latest
+        namespace: openshift
+    type: Docker
